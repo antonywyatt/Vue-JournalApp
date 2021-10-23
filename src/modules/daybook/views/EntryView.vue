@@ -26,7 +26,9 @@
         ></textarea>
     </div>
 
-    <Fab />
+    <Fab 
+        icon="fa-save"
+    />
 
     <img 
         src="https://i.ytimg.com/vi/vJJLYO4ndIw/maxresdefault.jpg" 
