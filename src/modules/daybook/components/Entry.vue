@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="entry-container mb-3 pointer p-2">
+        class="entry-container mb-3 pointer p-2 shadow">
         <div class="entry-title d-flex">
             <span class="text-success fs-5 fw-bold">15</span>
             <span class="mx-1 fs-5">Julio</span>
@@ -21,7 +21,7 @@ export default {
 
 <style  lang="scss" scoped>
 .entry-container{
-    border-bottom: 1px solid #2c3e50;
+    border-bottom: 1px solid #ced5db;
     transition: 0.2s all ease-in;
 
     &:hover {
