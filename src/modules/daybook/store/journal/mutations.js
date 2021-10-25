@@ -1,9 +1,7 @@
-/*export const myMutations = ( state ) => {
-    
-}*/
+export const setEntries = ( state, entries ) => {
 
-export const setEntries = ( state ) => {
-
+    state.entries = [...state.entries, ...entries]
+    state.isLoading = false
 }
 
 export const updateEntry = ( state ) => {
