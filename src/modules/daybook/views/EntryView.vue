@@ -130,11 +130,16 @@ export default {
 
             Swal.showLoading()
 
-            const picture = await uploadImage( this.file )
+            let picture = await uploadImage( this.file )
             
+            if(!picture){
+                picture = this.entry.picture
+            }
+
             this.entry.picture = picture
 
             if( this.entry.id ){
+                
                 await this.updateEntry(this.entry)
             }else{
                 const data = await this.createEntry(this.entry)
