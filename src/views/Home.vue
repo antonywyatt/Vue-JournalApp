@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <button @click="goToDaybook" class="btn btn-primary">Hola</button>
+    <button @click="goToDaybook" class="btn btn-primary">Entrar a mi diario</button>
   </div>
 </template>
 
