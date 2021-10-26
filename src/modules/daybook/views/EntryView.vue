@@ -38,10 +38,11 @@
             ></textarea>
         </div>
 
-        <!--<img 
-            src="https://i.ytimg.com/vi/vJJLYO4ndIw/maxresdefault.jpg" 
+        <img 
+            v-if="entry.picture && !localImage"
+            :src="entry.picture" 
             alt="entry-picture"
-            class="img-thumbnail">-->
+            class="img-thumbnail">
 
         <img 
             v-if="localImage"
@@ -62,6 +63,8 @@ import { defineAsyncComponent } from '@vue/runtime-core'
 import { mapGetters, mapActions } from 'vuex' //computed
 import Swal from 'sweetalert2'
 
+
+import uploadImage from '../helpers/uploadImage'
 import getDayMonthYear from '../helpers/getDayMonthYear'
 
 export default {
@@ -127,6 +130,10 @@ export default {
 
             Swal.showLoading()
 
+            const picture = await uploadImage( this.file )
+            
+            this.entry.picture = picture
+
             if( this.entry.id ){
                 await this.updateEntry(this.entry)
             }else{
@@ -136,8 +143,9 @@ export default {
                 this.$router.push({ name: 'entry', params: { id : data } })
             }
 
+            this.file = null
+            this.localImage = null
             Swal.fire('Guardando', 'Entrada registrada con éxito', 'success')
-            
         },
         async onDeleteEntry(){
 
